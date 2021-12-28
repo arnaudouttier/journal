@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Inter';
+    src: local('Inter-Regular'),
+        url('~@/assets/fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter-bold';
+    src: local('Inter-Bold'),
+        url('~@/assets/fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: bold;
+}
+
+$font_inter_regular: 'Inter',
+'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif;
+$font_inter_bold: 'Inter-bold';
