@@ -66,6 +66,7 @@ export default {
 
   &.menu_btn {
     justify-content: left;
+    z-index: 101;
   }
 
   &.sidebar_btn {
@@ -80,7 +81,6 @@ export default {
   position: absolute;
   width: 20px;
   transition: 0.2s ease;
-  z-index: 101;
 
   &::before,
   &::after {
