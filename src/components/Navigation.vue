@@ -36,6 +36,7 @@ export default {
   height: 100vh;
   width: 100%;
   background: #fff;
+  z-index: 99;
 }
 
 nav {
