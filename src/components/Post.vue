@@ -1,10 +1,9 @@
 <template>
   <article class="post" v-for="post in posts" v-bind:key="post.id">
     <div class="post_eader">
-      <div class="post_featured_image">
+      <div class="post_featured_image" v-if="post.featured_image">
         <a href="">
           <img
-            v-if="post.featured_image"
             :src="require('../assets/images/' + post.featured_image)"
             :alt="post.altfeatured_image"
           />
@@ -20,15 +19,11 @@
         </h2>
       </div>
       <div class="post_meta">
-        <span class="cat-links">
+        <span class="cat_links">
           <strong>Category</strong>
           <a>{{ post.category }}</a>
-          <a>Strategy</a>
         </span>
-        <span class="posted-on">Posted on:</span>
-        <a>
-          <time class="entry-date published">{{ post.date }}</time>
-        </a>
+        <span class="posted_on">{{ post.date }}</span>
       </div>
     </div>
   </article>
@@ -53,6 +48,10 @@ export default {
   width: 100;
   padding: 3rem 0;
   border-top: 2px solid $primary_color;
+
+  &:last-child {
+    border-bottom: 2px solid $primary_color;
+  }
 }
 
 .post_featured_image {
@@ -66,6 +65,48 @@ export default {
     img {
       filter: grayscale(100%);
     }
+  }
+}
+
+.post_title {
+  h2 {
+    font-size: calc(30.2px + 1.55vw);
+    line-height: 4rem;
+    font-weight: 400;
+    letter-spacing: -0.2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.post_meta {
+  span {
+    display: inline-block;
+
+    &:nth-child(1) {
+      margin-right: 4rem;
+    }
+  }
+
+  .cat_links {
+    font-size: 1.3rem;
+
+    strong {
+      font-family: $primary_font_bold;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-right: 0.6rem;
+    }
+  }
+
+  .posted_on {
+    margin-right: 0;
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: 0.05rem;
+    line-height: 2.5rem;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 }
 </style>

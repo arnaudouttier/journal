@@ -61,12 +61,14 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  height: auto;
+  height: 100%;
   background: rgb(255, 255, 255);
   z-index: 102;
   width: 100%;
   max-width: 0;
   transition: max-width 0.1s ease;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 
   &.active {
     max-width: 100%;
