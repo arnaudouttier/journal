@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .site-footer {
   padding: 38px 30px;
 }

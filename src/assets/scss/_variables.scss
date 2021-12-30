@@ -1,3 +1,10 @@
-$primary_color : #000;
+@import 'fonts.scss';
 
-$backgounrd_color :  #fff;
+// Colors
+$primary_color: #000;
+
+$backgounrd_color: #fff;
+
+// Fonts
+$primary_font: $font_inter_regular;
+$primary_font_bold: $font_inter_bold;

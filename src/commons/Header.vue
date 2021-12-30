@@ -1,44 +1,49 @@
 <template>
   <header class="site-header">
     <button
-      class="btn btn-nav"
+      class="btn btn-nav menu_btn"
       @click="toggleNav()"
       :class="{ activeNav: activeNav }"
     >
       <span class="menu-toggle"></span>
     </button>
-    <button class="btn btn-nav">
+    <button class="btn btn-nav sidebar_btn" @click="toggleSidebar()">
       <span class="icon-sidebar"></span>
     </button>
   </header>
-  <Navigation :enableNav="this.enableNav" />
+  <Navigation :enableNav="this.activeNav" :toggleNavigation="toggleNav" />
+  <Sidebar :enableSidebar="this.activeSidebar" :toggleSidebar="toggleSidebar" />
 </template>
 
 <script>
 import Navigation from '../components/Navigation.vue'
+import Sidebar from '../components/Sidebar.vue'
 
 export default {
   name: 'Heade',
   components: {
-    Navigation
+    Navigation,
+    Sidebar
   },
   data () {
     return {
       activeNav: false,
-      enableNav: false
+      activeSidebar: false
     }
   },
   methods: {
     toggleNav () {
       this.activeNav = !this.activeNav
-      this.enableNav = !this.enableNav
+    },
+    toggleSidebar () {
+      this.activeSidebar = !this.activeSidebar
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-@import '../assets/scss/variables.scss';
+@import '../assets/scss/style.scss';
 
 .site-header {
   display: flex;
@@ -47,12 +52,10 @@ export default {
   position: relative;
   top: 0 !important;
   width: 100%;
-  z-index: 2;
 }
 
 .btn-nav {
   display: flex;
-  justify-content: center;
   align-items: center;
   background: none;
   border: none;
@@ -60,15 +63,24 @@ export default {
   height: 40px;
   padding: 0;
   position: relative;
-  z-index: 1001;
+
+  &.menu_btn {
+    justify-content: left;
+  }
+
+  &.sidebar_btn {
+    justify-content: right;
+  }
 }
 
 .menu-toggle {
+  justify-content: left;
   background-color: $primary_color;
   height: 2px;
   position: absolute;
   width: 20px;
   transition: 0.2s ease;
+  z-index: 101;
 
   &::before,
   &::after {
