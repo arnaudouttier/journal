@@ -104,6 +104,7 @@ export default {
 .activeNav {
   .menu-toggle {
     background-color: transparent;
+    position: fixed;
 
     &::before,
     &::after {

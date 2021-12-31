@@ -2,20 +2,20 @@
   <article class="post" v-for="post in posts" v-bind:key="post.id">
     <div class="post_eader">
       <div class="post_featured_image" v-if="post.featured_image">
-        <a href="">
+        <router-link :to="{ name: 'Single', params: { id: post.id } }">
           <img
             :src="require('../assets/images/' + post.featured_image)"
             :alt="post.altfeatured_image"
           />
-        </a>
+        </router-link>
       </div>
     </div>
     <div class="post_content">
       <div class="post_title">
         <h2>
-          <a href="">
+          <router-link :to="{ name: 'Single', params: { id: post.id } }">
             {{ post.title }}
-          </a>
+          </router-link>
         </h2>
       </div>
       <div class="post_meta">

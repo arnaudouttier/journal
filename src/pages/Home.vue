@@ -1,7 +1,7 @@
 <template>
-  <main class="site-content home">
+  <section class="home">
     <Post />
-  </main>
+  </section>
 </template>
 
 <script>
@@ -15,8 +15,5 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.site-content {
-  padding: 5rem 3rem;
-}
+<style  lang="scss">
 </style>

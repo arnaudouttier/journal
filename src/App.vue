@@ -1,7 +1,9 @@
 <template>
   <div class="site">
     <Header />
-    <router-view />
+    <main class="site-content">
+      <router-view />
+    </main>
     <Footer />
   </div>
 </template>
@@ -20,5 +22,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/scss/style.scss";
+@import './assets/scss/style.scss';
+
+.site-content {
+  padding: 5rem 3rem;
+}
 </style>
