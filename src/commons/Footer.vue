@@ -2,8 +2,8 @@
   <footer class="site-footer">
     <div class="site_info">
       <p>
-        © cerebo 2020 ALL RIGHTS RESERVED. M: YOURMAIL@DOMAIN.COM T: (+61)
-        123456789
+        © Arnaud Outtier 35 rue d'Artois 59000 Lille
+        Arnaud.outtier@protonmail.com
       </p>
     </div>
   </footer>
