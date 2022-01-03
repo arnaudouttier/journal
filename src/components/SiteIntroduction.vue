@@ -17,7 +17,7 @@ export default {
 <style scoped lang="scss">
 .site_introduction {
   p {
-    font-size: 2rem;
+    font-size: calc(17.6px + 0.6472vw);
     font-weight: 400;
     line-height: 2.4rem;
     margin-bottom: 2.4rem;
