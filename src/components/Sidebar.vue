@@ -96,7 +96,7 @@ export default {
 .sidebar_close {
   width: 30px;
   height: 30px;
-  border: 0;
+  border: 0 !important;
   padding: 0;
   background-color: transparent;
 
