@@ -45,7 +45,7 @@ export default {
 <style  lang="scss">
 @import '../assets/scss/style.scss';
 .post {
-  width: 100;
+  width: 100%;
   padding: 3rem 0;
   border-top: 2px solid $primary_color;
 
@@ -75,6 +75,7 @@ export default {
     font-weight: 400;
     letter-spacing: -0.2rem;
     margin-bottom: 4rem;
+    position: relative;
   }
 }
 
@@ -107,6 +108,43 @@ export default {
     overflow-wrap: break-word;
     text-transform: uppercase;
     white-space: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .post {
+    padding: 5.5rem 0;
+
+    .post_title {
+      a {
+        &:hover {
+          text-decoration: underline;
+
+          &::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0px);
+          }
+        }
+        &::after {
+          content: url('../assets/images/right-arrow.png');
+          position: absolute;
+          display: inline-block;
+          font-size: 1.5em;
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          top: -4px;
+          right: 0;
+          -webkit-transition: 0.3s;
+          -moz-transition: 0.3s;
+          -ms-transition: 0.3s;
+          -o-transition: 0.3s;
+          transition: 0.3s;
+          transform: translateX(-20px);
+        }
+      }
+    }
   }
 }
 </style>

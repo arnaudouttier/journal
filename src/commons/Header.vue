@@ -12,31 +12,33 @@
     </button>
   </header>
   <Navigation :enableNav="this.activeNav" :toggleNavigation="toggleNav" />
-  <Sidebar :enableSidebar="this.activeSidebar" :toggleSidebar="toggleSidebar" />
 </template>
 
 <script>
 import Navigation from '../components/Navigation.vue'
-import Sidebar from '../components/Sidebar.vue'
 
 export default {
-  name: 'Heade',
+  name: 'Header',
   components: {
-    Navigation,
-    Sidebar
+    Navigation
   },
   data () {
     return {
       activeNav: false,
-      activeSidebar: false
+      activeSidebar: this.$store.state.activeSidebar
     }
+  },
+  props: {
+    activeSidebarApp: Boolean,
+    toggleSidebarApp: Function
   },
   methods: {
     toggleNav () {
       this.activeNav = !this.activeNav
     },
     toggleSidebar () {
-      this.activeSidebar = !this.activeSidebar
+      this.$store.commit('toleSIdebar')
+      console.log(this.$store.state.activeSidebar)
     }
   }
 }
@@ -48,7 +50,7 @@ export default {
 .site-header {
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px;
+  padding: 1.5rem 3rem;
   position: relative;
   top: 0 !important;
   width: 100%;
@@ -146,6 +148,12 @@ export default {
   }
   &::after {
     left: 10px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .site-header {
+    padding: 2.5rem 8rem;
   }
 }
 </style>

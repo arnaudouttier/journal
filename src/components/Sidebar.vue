@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" :class="{ active: enableSidebar }">
+  <div class="sidebar" :class="{ active: this.$store.state.activeSidebar }">
     <div class="sidebar_header">
       <button class="btn sidebar_close" @click="toggleSidebar()"></button>
     </div>
@@ -46,17 +46,24 @@
 
 <script>
 export default {
-  name: 'Navigation',
-  props: {
-    enableSidebar: Boolean,
-    toggleSidebar: Function
-  },
-  components: {}
+  name: 'Sidebar',
+  methods: {
+    toggleSidebar () {
+      this.$store.commit('toleSIdebar')
+      console.log(this.$store.state.activeSidebar)
+    }
+  }
 }
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
 @import '../assets/scss/style.scss';
+.sidebar.active + .site {
+  &:after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 .sidebar {
   position: fixed;
   top: 0;
@@ -66,7 +73,8 @@ export default {
   z-index: 102;
   width: 100%;
   max-width: 0;
-  transition: max-width 0.1s ease;
+  transition: max-width 0.2s ease;
+  transition-delay: 0.3s;
   overflow-y: scroll;
   scroll-behavior: smooth;
 
@@ -143,6 +151,14 @@ export default {
     visibility: visible;
     font-weight: 400;
     line-height: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    &.active {
+      max-width: 50%;
+    }
   }
 }
 </style>

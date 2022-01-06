@@ -21,8 +21,7 @@ export default {
   props: {
     enableNav: Boolean,
     toggleNavigation: Function
-  },
-  components: {}
+  }
 }
 </script>
 
@@ -40,7 +39,7 @@ export default {
 }
 
 nav {
-  padding: 80px 30px 30px;
+  padding: 8rem 3rem 3rem 3rem;
   max-height: calc(100% - 110px);
 
   ul {
@@ -69,6 +68,12 @@ nav {
       left: 0;
       bottom: -2px;
     }
+  }
+}
+
+@media (min-width: 1440px) {
+  nav {
+    padding: 8rem;
   }
 }
 </style>

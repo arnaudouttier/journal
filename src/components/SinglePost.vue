@@ -97,6 +97,12 @@ export default {
       .post_title {
         margin-bottom: 3rem;
         font-size: calc(34.2px + 1.55vw);
+
+        a {
+          &::after {
+            display: none;
+          }
+        }
       }
 
       .post_meta {
