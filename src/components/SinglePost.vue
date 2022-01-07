@@ -1,5 +1,5 @@
 <template>
-  <article class="post" v-for="post in filterSinglePost" v-bind:key="post.id">
+  <article class="post" v-for="post in postsFilter" :key="post.currentPostId">
     <div class="post_header">
       <div class="post_title">
         <h2>
@@ -56,25 +56,20 @@
 </template>
 
 <script>
-import { useRoute } from 'vue-router'
-import postsDataList from '../assets/json/posts.json'
-
 export default {
   name: 'SinglePost',
   data () {
     return {
-      posts: postsDataList,
-      currentPost: { Number }
+      posts: this.$store.state.posts,
+      currentPostId: this.$route.params.id
     }
   },
-  mounted () {
-    const route = useRoute()
-    this.currentPost = parseInt(route.params.id)
-  },
   computed: {
-    filterSinglePost () {
-      // eslint-disable-next-line eqeqeq
-      return this.posts.filter((post) => post.id == this.currentPost)
+    postsFilter () {
+      return this.posts.filter((post) => {
+        // eslint-disable-next-line eqeqeq
+        return post.id == this.currentPostId
+      })
     }
   }
 }

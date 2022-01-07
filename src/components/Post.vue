@@ -30,13 +30,11 @@
 </template>
 
 <script>
-import postsDataList from '../assets/json/posts.json'
-
 export default {
   name: 'Post',
   data () {
     return {
-      posts: postsDataList
+      posts: this.$store.state.posts
     }
   }
 }
