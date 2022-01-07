@@ -1,6 +1,6 @@
 <template>
   <article class="post" v-for="post in filterSinglePost" v-bind:key="post.id">
-    <div class="post_eader">
+    <div class="post_header">
       <div class="post_title">
         <h2>
           <a href="">
@@ -70,7 +70,6 @@ export default {
   mounted () {
     const route = useRoute()
     this.currentPost = parseInt(route.params.id)
-    console.log(typeof this.currentPost)
   },
   computed: {
     filterSinglePost () {
@@ -89,10 +88,12 @@ export default {
   .post {
     border: 0;
     padding: 0;
+    display: block;
 
-    .post_eader {
-      margin-bottom: 2rem;
+    .post_header {
+      margin-bottom: 4.6vw;
       border-bottom: 2px solid $primary_color;
+      max-width: 920px;
 
       .post_title {
         margin-bottom: 3rem;
@@ -109,6 +110,11 @@ export default {
         margin-bottom: 2.5rem;
       }
     }
+
+    .post_content {
+      max-width: 800px;
+    }
+
     .post_content_intro {
       font-size: 2rem;
       line-height: 2.8rem;

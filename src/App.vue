@@ -35,11 +35,7 @@ export default {
     top: 0;
     bottom: 0;
     width: 100%;
-    -webkit-transition-delay: 0.2s;
-    -moz-transition-delay: 0.2s;
-    -ms-transition-delay: 0.2s;
-    -o-transition-delay: 0.2s;
-    transition-delay: 0.2s;
+    transition-timing-function: ease;
     z-index: 2;
   }
 }

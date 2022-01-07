@@ -1,8 +1,8 @@
 <template>
   <article class="post" v-for="post in posts" v-bind:key="post.id">
-    <div class="post_eader">
+    <div class="post_header">
       <div class="post_featured_image" v-if="post.featured_image">
-        <router-link :to="{ name: 'Single', params: { id: post.id } }">
+        <router-link :to="{ name: 'Post', params: { id: post.id } }">
           <img
             :src="require('../assets/images/' + post.featured_image)"
             :alt="post.altfeatured_image"
@@ -13,7 +13,7 @@
     <div class="post_content">
       <div class="post_title">
         <h2>
-          <router-link :to="{ name: 'Single', params: { id: post.id } }">
+          <router-link :to="{ name: 'Post', params: { id: post.id } }">
             {{ post.title }}
           </router-link>
         </h2>
@@ -63,19 +63,21 @@ export default {
     overflow: hidden;
 
     img {
+      width: 100%;
       filter: grayscale(100%);
     }
   }
 }
 
 .post_title {
+  position: relative;
   h2 {
     font-size: calc(30.2px + 1.55vw);
-    line-height: 4rem;
+    line-height: 1.1em;
     font-weight: 400;
     letter-spacing: -0.2rem;
     margin-bottom: 4rem;
-    position: relative;
+    max-width: 820px;
   }
 }
 
@@ -111,6 +113,20 @@ export default {
   }
 }
 
+@media (min-width: 768px) {
+  .post {
+    display: flex;
+
+    .post_header {
+      max-width: 22%;
+    }
+
+    .post_content {
+      flex: 1;
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   .post {
     padding: 5.5rem 0;
@@ -134,13 +150,13 @@ export default {
           opacity: 0;
           visibility: hidden;
           position: absolute;
-          top: -4px;
+          top: 0px;
           right: 0;
-          -webkit-transition: 0.3s;
-          -moz-transition: 0.3s;
-          -ms-transition: 0.3s;
-          -o-transition: 0.3s;
-          transition: 0.3s;
+          -webkit-transition: 0.2s;
+          -moz-transition: 0.2s;
+          -ms-transition: 0.2s;
+          -o-transition: 0.2s;
+          transition: 0.2s;
           transform: translateX(-20px);
         }
       }

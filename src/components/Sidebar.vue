@@ -58,12 +58,6 @@ export default {
 
 <style  lang="scss">
 @import '../assets/scss/style.scss';
-.sidebar.active + .site {
-  &:after {
-    opacity: 1;
-    visibility: visible;
-  }
-}
 .sidebar {
   position: fixed;
   top: 0;
@@ -74,7 +68,6 @@ export default {
   width: 100%;
   max-width: 0;
   transition: max-width 0.2s ease;
-  transition-delay: 0.3s;
   overflow-y: scroll;
   scroll-behavior: smooth;
 
@@ -158,6 +151,13 @@ export default {
   .sidebar {
     &.active {
       max-width: 50%;
+
+      + .site {
+        &:after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
     }
   }
 }

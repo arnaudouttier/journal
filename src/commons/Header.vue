@@ -1,17 +1,17 @@
 <template>
   <header class="site-header">
     <button
-      class="btn btn-nav menu_btn"
+      class="btn btn_nav menu_btn"
       @click="toggleNav()"
       :class="{ activeNav: activeNav }"
     >
       <span class="menu-toggle"></span>
     </button>
-    <button class="btn btn-nav sidebar_btn" @click="toggleSidebar()">
+    <Navigation :enableNav="this.activeNav" :toggleNavigation="toggleNav" />
+    <button class="btn btn_nav sidebar_btn" @click="toggleSidebar()">
       <span class="icon-sidebar"></span>
     </button>
   </header>
-  <Navigation :enableNav="this.activeNav" :toggleNavigation="toggleNav" />
 </template>
 
 <script>
@@ -56,7 +56,7 @@ export default {
   width: 100%;
 }
 
-.btn-nav {
+.btn_nav {
   display: flex;
   align-items: center;
   background: none;
@@ -148,6 +148,15 @@ export default {
   }
   &::after {
     left: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-header {
+    padding: 2.5rem 5rem;
+  }
+  .menu_btn {
+    display: none;
   }
 }
 

@@ -71,9 +71,29 @@ nav {
   }
 }
 
-@media (min-width: 1440px) {
-  nav {
-    padding: 8rem;
+@media (min-width: 1024px) {
+  .site_navigation {
+    display: block !important;
+    position: relative;
+    height: auto;
+    width: auto;
+    background: transparent;
+
+    nav {
+      padding: 0;
+      ul {
+        flex-direction: row;
+        justify-content: space-between;
+
+        li {
+          margin-right: 2rem;
+        }
+        a {
+          font-size: 2rem;
+          font-weight: 500;
+        }
+      }
+    }
   }
 }
 </style>
