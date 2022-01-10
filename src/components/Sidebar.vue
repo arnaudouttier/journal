@@ -49,8 +49,7 @@ export default {
   name: 'Sidebar',
   methods: {
     toggleSidebar () {
-      this.$store.commit('toleSIdebar')
-      console.log(this.$store.state.activeSidebar)
+      this.$store.commit('toggleSIdebar')
     }
   }
 }

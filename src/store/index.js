@@ -9,7 +9,10 @@ export default createStore({
 
   },
   mutations: {
-    toleSIdebar (state) {
+    toggleNavigation (state) {
+      state.activeNav = !state.activeNav
+    },
+    toggleSIdebar (state) {
       state.activeSidebar = !state.activeSidebar
     }
   },

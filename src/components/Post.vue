@@ -2,7 +2,9 @@
   <article class="post" v-for="post in posts" v-bind:key="post.id">
     <div class="post_header">
       <div class="post_featured_image" v-if="post.featured_image">
-        <router-link :to="{ name: 'Post', params: { id: post.id } }">
+        <router-link
+          :to="{ name: 'Post', params: { id: post.id, slug: post.slug } }"
+        >
           <img
             :src="require('../assets/images/' + post.featured_image)"
             :alt="post.altfeatured_image"
@@ -13,7 +15,9 @@
     <div class="post_content">
       <div class="post_title">
         <h2>
-          <router-link :to="{ name: 'Post', params: { id: post.id } }">
+          <router-link
+            :to="{ name: 'Post', params: { id: post.id, slug: post.slug } }"
+          >
             {{ post.title }}
           </router-link>
         </h2>

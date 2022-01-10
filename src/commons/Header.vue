@@ -3,11 +3,11 @@
     <button
       class="btn btn_nav menu_btn"
       @click="toggleNav()"
-      :class="{ activeNav: activeNav }"
+      :class="{ activeNavBtn: this.$store.state.activeNav }"
     >
       <span class="menu-toggle"></span>
     </button>
-    <Navigation :enableNav="this.activeNav" :toggleNavigation="toggleNav" />
+    <Navigation />
     <button class="btn btn_nav sidebar_btn" @click="toggleSidebar()">
       <span class="icon-sidebar"></span>
     </button>
@@ -24,21 +24,16 @@ export default {
   },
   data () {
     return {
-      activeNav: false,
+      activeNav: this.$store.state.activeNav,
       activeSidebar: this.$store.state.activeSidebar
     }
   },
-  props: {
-    activeSidebarApp: Boolean,
-    toggleSidebarApp: Function
-  },
   methods: {
     toggleNav () {
-      this.activeNav = !this.activeNav
+      this.$store.commit('toggleNavigation')
     },
     toggleSidebar () {
-      this.$store.commit('toleSIdebar')
-      console.log(this.$store.state.activeSidebar)
+      this.$store.commit('toggleSIdebar')
     }
   }
 }
@@ -103,7 +98,7 @@ export default {
   }
 }
 
-.activeNav {
+.activeNavBtn {
   .menu-toggle {
     background-color: transparent;
     position: fixed;

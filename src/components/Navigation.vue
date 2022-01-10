@@ -1,14 +1,12 @@
 <template>
-  <div class="site_navigation" v-show="enableNav">
+  <div class="site_navigation" v-show="this.$store.state.activeNav">
     <nav>
       <ul>
         <li>
-          <router-link @click="toggleNavigation()" to="/">Accueil</router-link>
+          <router-link @click="toggleNav()" to="/">Accueil</router-link>
         </li>
         <li>
-          <router-link @click="toggleNavigation()" to="/about"
-            >About</router-link
-          >
+          <router-link @click="toggleNav()" to="/about">About</router-link>
         </li>
       </ul>
     </nav>
@@ -18,9 +16,10 @@
 <script>
 export default {
   name: 'Navigation',
-  props: {
-    enableNav: Boolean,
-    toggleNavigation: Function
+  methods: {
+    toggleNav () {
+      this.$store.commit('toggleNavigation')
+    }
   }
 }
 </script>
@@ -55,22 +54,41 @@ nav {
     font-weight: 600;
     letter-spacing: 0.05rem;
     position: relative;
-  }
 
-  .router-link-active {
-    &::after {
-      display: block;
-      content: '';
-      background-color: rgb(0, 0, 0);
-      height: 2px;
-      width: 100%;
+    &::before {
+      background: $primary_color;
       position: absolute;
-      left: 0;
+      content: '';
       bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      transform-origin: center;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+      &::before {
+        transform-origin: center;
+        transform: scaleX(1);
+      }
+    }
+
+    &.router-link-active {
+      &::after {
+        display: block;
+        content: '';
+        background-color: $primary_color;
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
     }
   }
 }
-
 @media (min-width: 1024px) {
   .site_navigation {
     display: block !important;
