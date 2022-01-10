@@ -3,7 +3,7 @@
   <div class="site">
     <Header />
     <main class="site-content">
-      <router-view />
+      <router-view :key="$route.path" />
     </main>
     <Footer />
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <article class="post" v-for="post in postsFilter" :key="post.currentPostId">
+  <article class="post">
     <div class="post_header">
       <div class="post_title">
         <h2>
@@ -60,16 +60,15 @@ export default {
   name: 'SinglePost',
   data () {
     return {
-      posts: this.$store.state.posts,
-      currentPostId: this.$route.params.id
+      posts: this.$store.state.posts
     }
   },
   computed: {
-    postsFilter () {
-      return this.posts.filter((post) => {
-        // eslint-disable-next-line eqeqeq
-        return post.id == this.currentPostId
-      })
+    postId () {
+      return parseInt(this.$route.params.id)
+    },
+    post () {
+      return this.posts.find((post) => post.id === this.postId)
     }
   }
 }
