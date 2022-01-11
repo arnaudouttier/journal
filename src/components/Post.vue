@@ -1,7 +1,7 @@
 <template>
   <article class="post" v-for="post in posts" v-bind:key="post.id">
-    <div class="post_header">
-      <div class="post_featured_image" v-if="post.featured_image">
+    <div class="post_header" v-if="post.featured_image">
+      <div class="post_featured_image">
         <router-link
           :to="{ name: 'Post', params: { id: post.id, slug: post.slug } }"
         >
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style  lang="scss">
-@import '../assets/scss/style.scss';
+@import "../assets/scss/style.scss";
 .post {
   width: 100%;
   padding: 3rem 0;
@@ -121,10 +121,15 @@ export default {
 
     .post_header {
       max-width: 22%;
+
+      + .post_content {
+        padding-left: 6%;
+      }
     }
 
     .post_content {
       flex: 1;
+      width: calc(100% - 35%);
     }
   }
 }
@@ -145,7 +150,7 @@ export default {
           }
         }
         &::after {
-          content: url('../assets/images/right-arrow.png');
+          content: url("../assets/images/right-arrow.png");
           position: absolute;
           display: inline-block;
           font-size: 1.5em;
@@ -161,6 +166,12 @@ export default {
           transition: 0.2s;
           transform: translateX(-20px);
         }
+      }
+    }
+
+    .post_header {
+      + .post_content {
+        padding-left: 4%;
       }
     }
   }

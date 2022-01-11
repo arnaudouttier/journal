@@ -48,6 +48,17 @@ h4,
 h5,
 h6 {
   margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+h2{
+  font-size: calc(30.2px + 1.55vw);
+  line-height: 1.15;
+}
+
+h3,h4{
+  line-height: 1.2;
 }
 
 img {

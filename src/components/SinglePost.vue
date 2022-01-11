@@ -30,7 +30,7 @@
           need to take.
         </p>
       </div>
-      <div class="post_content">
+      <div class="post_main">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Habitasse
@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/scss/style.scss';
+@import "../assets/scss/style.scss";
 .single {
   text-align: left;
 
@@ -107,6 +107,7 @@ export default {
 
     .post_content {
       max-width: 800px;
+      padding: 0;
     }
 
     .post_content_intro {

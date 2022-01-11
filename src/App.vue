@@ -26,8 +26,12 @@ export default {
 
 <style lang="scss">
 .site {
+  margin: auto;
+  max-width: 1920px;
+  overflow: hidden;
+
   &::after {
-    content: '';
+    content: "";
     background-color: rgba(0, 0, 0, 0.9);
     opacity: 0;
     visibility: hidden;
@@ -42,9 +46,6 @@ export default {
 
 .site-content {
   padding: 5rem 3rem;
-  margin: auto;
-  max-width: 1920px;
-  overflow: hidden;
 }
 
 @media (min-width: 767px) {

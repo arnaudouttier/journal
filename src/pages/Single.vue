@@ -16,4 +16,9 @@ export default {
 </script>
 
 <style  lang="scss">
+.single > * {
+    margin : auto;
+    max-width: 1200px;
+    text-align: left;
+}
 </style>

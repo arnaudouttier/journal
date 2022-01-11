@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" :class="{ active: this.$store.state.activeSidebar }">
+  <aside class="sidebar" :class="{ active: this.$store.state.activeSidebar }">
     <div class="sidebar_header">
       <button class="btn sidebar_close" @click="toggleSidebar()"></button>
     </div>
@@ -41,7 +41,7 @@
         </ul>
       </section>
     </div>
-  </div>
+  </aside>
 </template>
 
 <script>
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style  lang="scss">
-@import '../assets/scss/style.scss';
+@import "../assets/scss/style.scss";
 .sidebar {
   position: fixed;
   top: 0;
@@ -94,7 +94,7 @@ export default {
 
   &::before,
   &::after {
-    content: ' ';
+    content: " ";
     position: absolute;
     background-color: $primary_color;
     height: 2px;
@@ -142,7 +142,6 @@ export default {
     overflow-wrap: break-word;
     visibility: visible;
     font-weight: 400;
-    line-height: 2.5rem;
   }
 }
 
@@ -158,6 +157,10 @@ export default {
         }
       }
     }
+  }
+  .sidebar_content {
+    max-width: 300px;
+    margin: 0 auto;
   }
 }
 </style>

@@ -51,7 +51,7 @@ nav {
     font-size: 2.6rem;
     line-height: 3.3rem;
     margin-bottom: 2.6rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.05rem;
     position: relative;
 
