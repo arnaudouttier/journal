@@ -8,6 +8,8 @@
           <img
             :src="require('../assets/images/' + post.featured_image)"
             :alt="post.altfeatured_image"
+            height="{{}}"
+            width="{{}}"
           />
         </router-link>
       </div>
